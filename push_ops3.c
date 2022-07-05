@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils2.c                                     :+:      :+:    :+:   */
+/*   push_ops3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/05 18:30:06 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/05 19:35:04 by aivanyan         ###   ########.fr       */
+/*   Created: 2022/07/05 19:34:22 by aivanyan          #+#    #+#             */
+/*   Updated: 2022/07/05 19:34:52 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_stk_rotate(t_stack *this)
+void	ft_rra(t_stack *a, t_stack *b)
 {
-	if (!this)
-		return ;
-	this->head = this->head->next;	
+	(void)b;
+	ft_stk_revrotate(a);
 }
 
-void	ft_stk_revrotate(t_stack *this)
+void	ft_rrb(t_stack *a, t_stack *b)
 {
-	if (!this)
-		return ;
-	this->head = this->head->prev;
+	(void)a;
+	ft_stk_revrotate(b);
+}
+
+void	ft_rrr(t_stack *a, t_stack *b)
+{
+	ft_stk_revrotate(a);
+	ft_stk_revrotate(b);
 }
