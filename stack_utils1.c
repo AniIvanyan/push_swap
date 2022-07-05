@@ -6,7 +6,7 @@
 /*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:01:19 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/04 22:52:18 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/05 18:28:04 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,27 +24,64 @@ t_stack	*ft_stk_construct()
 	return (new_stack);
 }
 
-void	ft_stk_push(t_stack *this, int data)
+void	ft_stk_push_int(t_stack *this, int data)
 {
 	t_node *new_node;
 
 	new_node = malloc(sizeof(t_node));
-	if(!new_node)
-		return (NULL);
+	if (!this || !new_node)
+		return ;
+	new_node->data = data;
+	ft_stk_push_node(this, new_node);
+}
+
+void	ft_stk_push_node(t_stack *this, t_node *node)
+{
+	if (!this || !node)
+		return ;
 	if (this->size == 0)
 	{
-		this->head = new_node;
+		this->head = node;
 		this->head->next = this->head;
 		this->head->prev = this->head;
 	}
 	else
 	{
-		new_node->next = this->head;
-		new_node->prev = this->head->prev;
-		this->head->prev->next = new_node;
-		this->head->prev = new_node;
-		this->head = new_node;
+		node->next = this->head;
+		node->prev = this->head->prev;
+		this->head->prev->next = node;
+		this->head->prev = node;
+		this->head = node;
 	}
 	this->size++;
-	free(new_node);
+}
+
+t_node	*ft_stk_pop(t_stack *this)
+{
+	t_node	*old_head;
+	t_node	*predecessor;
+	t_node	*successor;
+
+	if (!this || !this->size)
+		return (NULL);
+	old_head = this->head;
+	if (this->size == 1)
+	{
+		this->head = NULL;
+		return (old_head);
+	}
+	predecessor = old_head->prev;
+	successor = old_head->next;
+	predecessor->next = successor;
+	successor->prev = predecessor;
+	this->head = successor;
+	this->size--;
+	return (old_head);
+}
+
+t_node	*ft_stk_top(t_stack *this)
+{
+	if (!this)
+		return (NULL);
+	return (this->head);
 }
