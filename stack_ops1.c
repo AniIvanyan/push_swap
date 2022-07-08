@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:45 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/08 20:02:29 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:20:54 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,5 @@ void	ft_pa(t_stack *a, t_stack *b)
 
 void	ft_pb(t_stack *a, t_stack *b)
 {
-	ft_stk_push_node(b, ft_stk_pop(b));
+	ft_stk_push_node(b, ft_stk_pop(a));
 }

@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/08 20:00:32 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:11:19 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_stack
 	t_node	*head;
 	int		size;
 }				t_stack;
+
+typedef void	(*t_ops)(t_stack *a, t_stack *b);
 
 enum	e_ops{sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
 // stack_utils1
