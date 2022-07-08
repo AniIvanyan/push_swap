@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/05 18:52:31 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/08 15:50:44 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,20 @@ t_node	*ft_stk_top(t_stack *this);
 void	ft_stk_rotate(t_stack *this);
 void	ft_stk_revrotate(t_stack *this);
 
-//stack_ops
+//stack_ops1
 void	ft_sa(t_stack *a, t_stack *b);
 void	ft_sb(t_stack *a, t_stack *b);
 void	ft_ss(t_stack *a, t_stack *b);
+void	ft_pa(t_stack *a, t_stack *b);
+void	ft_pb(t_stack *a, t_stack *b);
+
+//stack_ops2
+void	ft_ra(t_stack *a, t_stack *b);
+void	ft_rb(t_stack *a, t_stack *b);
+void	ft_rr(t_stack *a, t_stack *b);
+
+//stack_ops3
+void	ft_rra(t_stack *a, t_stack *b);
+void	ft_rrb(t_stack *a, t_stack *b);
+void	ft_rrr(t_stack *a, t_stack *b);
 #endif
