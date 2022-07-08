@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/08 15:50:44 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:00:32 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
-typedef struct	s_node
+
+typedef struct s_node
 {
 	int				data;
 	struct s_node	*next;
@@ -27,8 +28,9 @@ typedef struct s_stack
 	int		size;
 }				t_stack;
 
+enum	e_ops{sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
 // stack_utils1
-t_stack	*ft_stk_construct();
+t_stack	*ft_stk_construct(void);
 void	ft_stk_push_int(t_stack *this, int data);
 void	ft_stk_push_node(t_stack *this, t_node *node);
 t_node	*ft_stk_pop(t_stack *this);

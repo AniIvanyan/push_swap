@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   stack_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:01:19 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/05 18:28:04 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:03:23 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stk_construct()
+t_stack	*ft_stk_construct(void)
 {
 	t_stack	*new_stack;
-	
+
 	new_stack = malloc(sizeof(t_stack));
 	if (!new_stack)
 		return (NULL);
@@ -26,7 +26,7 @@ t_stack	*ft_stk_construct()
 
 void	ft_stk_push_int(t_stack *this, int data)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!this || !new_node)

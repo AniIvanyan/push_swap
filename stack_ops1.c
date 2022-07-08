@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_ops1.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:45 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/05 19:34:49 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/08 20:02:29 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_sa(t_stack *a, t_stack *b)
 {
-	int temp;
-	
+	int	temp;
+
 	if (!a || !b)
 		return ;
 	(void)b;
@@ -28,8 +28,8 @@ void	ft_sa(t_stack *a, t_stack *b)
 
 void	ft_sb(t_stack *a, t_stack *b)
 {
-	int temp;
-	
+	int	temp;
+
 	if (!a || !b)
 		return ;
 	(void)a;
