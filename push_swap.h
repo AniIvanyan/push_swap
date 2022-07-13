@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/08 20:11:19 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/13 19:25:13 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_node
 {
@@ -58,4 +59,14 @@ void	ft_rr(t_stack *a, t_stack *b);
 void	ft_rra(t_stack *a, t_stack *b);
 void	ft_rrb(t_stack *a, t_stack *b);
 void	ft_rrr(t_stack *a, t_stack *b);
+
+//helper
+int		ft_isspace(int c);
+int		ft_atoi(const char *str);
+void	ft_putstr(const char *s);
+
+//push_algorithms
+void	sort_two(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack_a, t_stack *stack_b);
+void	less_three(t_stack *stack_a, t_stack *stack_b);
 #endif
