@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:18:00 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/21 18:28:15 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:18:31 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,19 @@ void	ft_putstr(const char *s)
 		write(1, &s[i++], 1);
 }
 
+int	ft_sorted(t_stack *this)
+{
+	int i;
+	t_node *temp;
+
+	i = 1;
+	temp = this->head;
+	while(i < this->size)
+	{
+		if (temp->data > temp->next->data)
+			return (0);
+		temp = temp->next;
+		i++;
+	}
+	return (1);
+}

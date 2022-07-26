@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:47:24 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/21 19:58:11 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:13:22 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,41 +23,42 @@ void	sort_two(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_three1(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->head->data < stack_a->head->next->data
-		&& stack_a->head->data < stack_a->head->prev->data
-		&& stack_a->head->next->data >stack_a->head->prev->data)
+	if (ft_sorted(stack_a))
+		return ;
+	
+	else if (stack_a->head->data < stack_a->head->next->data
+		&& stack_a->head->data < stack_a->head->prev->data)
 	{
 		ft_sa(stack_a, stack_b);
 		ft_ra(stack_a, stack_b);
 		ft_putstr("sa\nra\n");
 	}
-
-	else if (stack_a->head->data > stack_a->head->next->data
-			&& stack_a->head->data < stack_a->head->prev->data)
-	{
-		ft_sa(stack_a, stack_b);
-		ft_putstr("sa\n");
-	}
-
-	else if (stack_a->head->data < stack_a->head->next->data
-			&& stack_a->head->data > stack_a->head->prev->data)
+	
+	else if (stack_a->head->data < stack_a->head->next->data)
 	{
 		ft_rra(stack_a, stack_b);
 		ft_putstr("rra\n");
+	}
+
+	else if (stack_a->head->data < stack_a->head->prev->data)
+	{
+		ft_sa(stack_a, stack_b);
+		ft_putstr("sa\n");
 	}
 }
 
 void	sort_three2(t_stack *stack_a, t_stack *stack_b)
 {
-	 if (stack_a->head->data > stack_a->head->next->data
-			&& stack_a->head->data > stack_a->head->prev->data
-			&& stack_a->head->next->data < stack_a->head->prev->data)
+	if (ft_sorted(stack_a))
+		return ;
+	
+	else if (stack_a->head->next->data < stack_a->head->prev->data)
 	{
 		ft_ra(stack_a, stack_b);
 		ft_putstr("ra\n");
 	}
-	else if (stack_a->head->data > stack_a->head->next->data
-			&& stack_a->head->data > stack_a->head->prev->data)
+
+	else 
 	{
 		ft_sa(stack_a, stack_b);
 		ft_rra(stack_a, stack_b);
@@ -84,7 +85,10 @@ void	sort_four1(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_four2(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->head->data > stack_a->head->next->data
+	if (stack_a->head->data < stack_a->head->next->data)
+		return ;
+		
+	else if (stack_a->head->data > stack_a->head->next->data
 			&& stack_a->head->data < stack_a->head->next->next->data)
 	{
 		ft_sa(stack_a, stack_b);

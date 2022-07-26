@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/21 20:03:38 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:42:07 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	ft_rrr(t_stack *a, t_stack *b);
 int		ft_isspace(int c);
 int		ft_atoi(const char *str);
 void	ft_putstr(const char *s);
+int		ft_sorted(t_stack *this);
 
 //trivial_algorithms1
 void	sort_two(t_stack *stack_a, t_stack *stack_b);

@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 19:57:36 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/21 19:58:35 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:09:08 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void	sort_five1(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_five2(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->head->data < stack_a->head->prev->data
+	if (stack_a->head->data < stack_a->head->next->data)
+		return;
+		
+	else if (stack_a->head->data < stack_a->head->prev->data
 		&& stack_a->head->data > stack_a->head->prev->prev->data)
 	{
 		ft_rra(stack_a, stack_b);
