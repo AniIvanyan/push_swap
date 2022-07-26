@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:47:24 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/26 14:13:22 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:25:09 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	sort_two(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->head->data > stack_a->head->next->data)
-		{
+	{
 			ft_sa(stack_a, stack_b);
 			ft_putstr("sa\n");
-		}
+	}
 }
 
 void	sort_three1(t_stack *stack_a, t_stack *stack_b)
@@ -68,6 +68,8 @@ void	sort_three2(t_stack *stack_a, t_stack *stack_b)
 
 void	sort_four1(t_stack *stack_a, t_stack *stack_b)
 {
+	if (ft_sorted(stack_a))
+		return ;
 	ft_pb(stack_a, stack_b);
 	ft_putstr("pb\n");
 	sort_three1(stack_a, stack_b);
@@ -88,8 +90,7 @@ void	sort_four2(t_stack *stack_a, t_stack *stack_b)
 	if (stack_a->head->data < stack_a->head->next->data)
 		return ;
 		
-	else if (stack_a->head->data > stack_a->head->next->data
-			&& stack_a->head->data < stack_a->head->next->next->data)
+	else if (stack_a->head->data < stack_a->head->next->next->data)
 	{
 		ft_sa(stack_a, stack_b);
 		ft_putstr("sa\n");
