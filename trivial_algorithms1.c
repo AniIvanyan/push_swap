@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:47:24 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/26 14:25:09 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/26 14:42:52 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	sort_three1(t_stack *stack_a, t_stack *stack_b)
 {
 	if (ft_sorted(stack_a))
 		return ;
-	
 	else if (stack_a->head->data < stack_a->head->next->data
 		&& stack_a->head->data < stack_a->head->prev->data)
 	{
@@ -33,13 +32,11 @@ void	sort_three1(t_stack *stack_a, t_stack *stack_b)
 		ft_ra(stack_a, stack_b);
 		ft_putstr("sa\nra\n");
 	}
-	
 	else if (stack_a->head->data < stack_a->head->next->data)
 	{
 		ft_rra(stack_a, stack_b);
 		ft_putstr("rra\n");
 	}
-
 	else if (stack_a->head->data < stack_a->head->prev->data)
 	{
 		ft_sa(stack_a, stack_b);
@@ -51,13 +48,11 @@ void	sort_three2(t_stack *stack_a, t_stack *stack_b)
 {
 	if (ft_sorted(stack_a))
 		return ;
-	
 	else if (stack_a->head->next->data < stack_a->head->prev->data)
 	{
 		ft_ra(stack_a, stack_b);
 		ft_putstr("ra\n");
 	}
-
 	else 
 	{
 		ft_sa(stack_a, stack_b);
