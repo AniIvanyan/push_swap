@@ -6,19 +6,18 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:45 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/08 20:20:54 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/27 11:24:03 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sa(t_stack *a, t_stack *b)
+void	ft_sa(t_stack *a)
 {
 	int	temp;
 
-	if (!a || !b)
+	if (!a)
 		return ;
-	(void)b;
 	if (a->size < 2)
 		return ;
 	temp = a->head->data;
@@ -26,13 +25,12 @@ void	ft_sa(t_stack *a, t_stack *b)
 	a->head->next->data = temp;
 }
 
-void	ft_sb(t_stack *a, t_stack *b)
+void	ft_sb(t_stack *b)
 {
 	int	temp;
 
-	if (!a || !b)
+	if (!b)
 		return ;
-	(void)a;
 	if (b->size < 2)
 		return ;
 	temp = b->head->data;
@@ -42,8 +40,8 @@ void	ft_sb(t_stack *a, t_stack *b)
 
 void	ft_ss(t_stack *a, t_stack *b)
 {
-	ft_sa(a, b);
-	ft_sb(a, b);
+	ft_sa(a);
+	ft_sb(b);
 }
 
 void	ft_pa(t_stack *a, t_stack *b)
