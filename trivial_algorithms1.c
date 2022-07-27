@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:47:24 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/27 13:42:20 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/28 01:34:49 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int	find_min(t_stack *this)
 	int	min;
 	t_node *temp;
 
+	if (!this || !this->head)
+		return (-1);
 	i = 0;
 	index = 0;
 	temp = this->head;
-	if (!this)
-		return (-1);
 	min = temp->data;
 	while (i < this->size)
 	{
@@ -86,4 +86,3 @@ void	min_to_top(t_stack *this, int index5, int index4)
 	else if (index5 == 4 || index4 == 3)
 		ft_ops(this, NULL, rra);
 }
-

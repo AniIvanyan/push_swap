@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 19:57:36 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/27 13:36:03 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/28 01:39:21 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	sort_five(t_stack *stack_a, t_stack *stack_b)
 
 void	less_five(t_stack *stack_a, t_stack *stack_b)
 {
-	if (!stack_a || stack_a->size < 2)
+	if (!stack_a || !stack_b || stack_a->size < 2)
 		return ;
 	if (stack_a->size == 2)
 		sort_two(stack_a, stack_b);
