@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/27 11:54:06 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:02:39 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_stack
 	t_node	*head;
 	int		size;
 }				t_stack;
+
+enum ops{sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
 
 // stack_utils1
 t_stack	*ft_stk_construct(void);
@@ -51,11 +53,14 @@ void	ft_pb(t_stack *a, t_stack *b);
 void	ft_ra(t_stack *a);
 void	ft_rb(t_stack *b);
 void	ft_rr(t_stack *a, t_stack *b);
-
-//stack_ops3
 void	ft_rra(t_stack *a);
 void	ft_rrb(t_stack *b);
+
+//stack_ops3
 void	ft_rrr(t_stack *a, t_stack *b);
+void	ft_ops(t_stack *a, t_stack *b, enum ops ops);
+void	ft_ops_helper1(t_stack *a, t_stack *b, enum ops ops);
+void	ft_ops_helper2(t_stack *a, t_stack *b, enum ops ops);
 
 //helper
 int		ft_isspace(int c);
@@ -64,11 +69,9 @@ void	ft_putstr(const char *s);
 int		ft_sorted(t_stack *this);
 
 //trivial_algorithms1
-void	sort_two(t_stack *stack_a);
-void	sort_three1(t_stack *stack_a);
-void	sort_three2(t_stack *stack_a);
-void	sort_four1(t_stack *stack_a, t_stack *stack_b);
-void	sort_four2(t_stack *stack_a);
+void	sort_two(t_stack *stack_a, t_stack *stack_b);
+void	sort_three(t_stack *stack_a, t_stack *stack_b);
+void	sort_four(t_stack *stack_a, t_stack *stack_b);
 
 //trivial_algorithms1
 int		find_min(t_stack *this);
