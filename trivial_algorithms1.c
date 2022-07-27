@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:47:24 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/27 12:53:30 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:42:20 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,25 +41,49 @@ void	sort_three(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	sort_four(t_stack *stack_a, t_stack *stack_b)
+int	find_min(t_stack *this)
 {
-	if (ft_sorted(stack_a))
-		return ;
-	ft_ops(stack_a, stack_b, pb);
-	sort_three(stack_a, stack_b);
-	ft_ops(stack_a, stack_b, pa);
-	if (stack_a->head->data < stack_a->head->next->data)
-		return ;
-	else if (stack_a->head->data > stack_a->head->prev->data)
-		ft_ops(stack_a, stack_b, ra);
-	else if (stack_a->head->data < stack_a->head->next->next->data)
-		ft_ops(stack_a, stack_b, sa);
-	else
+	int	i;
+	int	index;
+	int	min;
+	t_node *temp;
+
+	i = 0;
+	index = 0;
+	temp = this->head;
+	if (!this)
+		return (-1);
+	min = temp->data;
+	while (i < this->size)
 	{
-		ft_ops(stack_a, stack_b, rra);
-		ft_ops(stack_a, stack_b, sa);
-		ft_ops(stack_a, stack_b, ra);
-		ft_ops(stack_a, stack_b, ra);
+		if (temp->data < min)
+		{
+			min = temp->data;
+			index = i;
+		}
+		temp = temp->next;
+		i++;
 	}
+	return (index);
+}
+
+void	min_to_top(t_stack *this, int index5, int index4)
+{
+	if ((index5 <= 0  && index4 <= 0) || !this)
+		return ;
+	else if (index5 == 1 || index5 == 1)
+		ft_ops(this, NULL, sa);
+	else if (index5 == 2 || index4 == 2)
+	{
+		ft_ops(this, NULL, ra);
+		ft_ops(this, NULL, ra);
+	}
+	else if (index5 == 3)
+	{
+		ft_ops(this, NULL, rra);
+		ft_ops(this, NULL, rra);
+	}
+	else if (index5 == 4 || index4 == 3)
+		ft_ops(this, NULL, rra);
 }
 

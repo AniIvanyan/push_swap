@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/27 13:02:39 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:24:15 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,11 @@ int		ft_sorted(t_stack *this);
 //trivial_algorithms1
 void	sort_two(t_stack *stack_a, t_stack *stack_b);
 void	sort_three(t_stack *stack_a, t_stack *stack_b);
-void	sort_four(t_stack *stack_a, t_stack *stack_b);
+int		find_min(t_stack *this);
+void	min_to_top(t_stack *this, int index5, int index4);
 
 //trivial_algorithms1
-int		find_min(t_stack *this);
-void	min_to_top(t_stack *this, int index);
+void	sort_four(t_stack *stack_a, t_stack *stack_b);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	less_five(t_stack *stack_a, t_stack *stack_b);
 #endif
