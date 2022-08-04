@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/28 17:34:04 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/04 22:35:28 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	find_index(t_stack *this, int data)
 	int	i;
 	t_node *temp;
 
-	if (!this || !this->head)
+	if (!this)
 		return (-1);
 	i = 0;
 	temp = this->head;
@@ -84,7 +84,7 @@ int	find_index(t_stack *this, int data)
 
 int	ops_count_to_top(int size, int index)
 {
-	if (index <= size / 2)
+	if (index < size / 2)
 		return (index);
 	return (size - index);
 }
@@ -150,9 +150,9 @@ void	top_to_b(t_stack *stack_a, t_stack *stack_b, int greedy)
 
 	index = find_index(stack_b, greedy);
 	i = 0;
-	if (index <= stack_b->size / 2)
+	if (index < stack_b->size / 2)
 	{
-		while (i <= index)
+		while (i < index)
 		{
 			ft_ops(stack_a, stack_b, rb);
 			i++;
@@ -161,7 +161,7 @@ void	top_to_b(t_stack *stack_a, t_stack *stack_b, int greedy)
 	else
 	{
 		i = stack_b->size - index;
-		while (i >= 0)
+		while (i > 0)
 		{
 			ft_ops(stack_a, stack_b, rrb);
 			i--;
@@ -176,9 +176,9 @@ void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 	
 	count = min_ops_in_a(stack_a, greedy);
 	i = 0;
-	if (count <= stack_a->size / 2)
+	if (count < stack_a->size / 2)
 	{
-		while (i <= count)
+		while (i < count)
 		{
 			ft_ops(stack_a, stack_b, ra);
 			i++;
@@ -187,7 +187,7 @@ void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 	else
 	{
 		i = stack_b->size - count;
-		while (i >= 0)
+		while (i > 0)
 		{
 			ft_ops(stack_a, stack_b, rra);
 			i--;
@@ -203,7 +203,8 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 	if (!stack_a || !stack_b)
 		return ;
 	greedy = 0;
-	push_to_b(stack_a, stack_b);
+	if (!ft_sorted(stack_a))
+		push_to_b(stack_a, stack_b);
 	while (stack_b->size > 0)
 	{
 		greedy = greedy_choice(stack_a, stack_b);
