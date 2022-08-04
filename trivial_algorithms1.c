@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:47:24 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/28 01:34:49 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/04 19:58:35 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	min_to_top(t_stack *this, int index5, int index4)
 {
 	if ((index5 <= 0  && index4 <= 0) || !this)
 		return ;
-	else if (index5 == 1 || index5 == 1)
+	else if (index5 == 1 || index4 == 1)
 		ft_ops(this, NULL, sa);
 	else if (index5 == 2 || index4 == 2)
 	{
