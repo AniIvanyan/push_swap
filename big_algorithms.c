@@ -6,11 +6,12 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/04 22:35:28 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/05 11:25:22 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 int	find_max(t_stack *this)
 {
@@ -82,10 +83,12 @@ int	find_index(t_stack *this, int data)
 	return (-1);
 }
 
-int	ops_count_to_top(int size, int index)
+int	ops_count_to_top(int size, int index) // logical error can be connected with indexes/ correct rotations
 {
 	if (index < size / 2)
 		return (index);
+	else if (index == size)
+		return (0);
 	return (size - index);
 }
 
@@ -106,7 +109,7 @@ int	min_ops_in_a(t_stack *this, int data)
 	{
 		if (data > temp->data && data < temp->next->data)
 		{
-			count = ops_count_to_top(this->size, i + 1);
+			count = ops_count_to_top(this->size, i + 1); // careful here
 			if (count < min)
 				min = count;
 		}
@@ -158,10 +161,10 @@ void	top_to_b(t_stack *stack_a, t_stack *stack_b, int greedy)
 			i++;
 		}
 	}
-	else
+	else if (index > stack_b->size / 2)
 	{
 		i = stack_b->size - index;
-		while (i > 0)
+		while (i < index)
 		{
 			ft_ops(stack_a, stack_b, rrb);
 			i--;
@@ -186,11 +189,10 @@ void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 	}
 	else
 	{
-		i = stack_b->size - count;
-		while (i > 0)
+		while (i < count)
 		{
 			ft_ops(stack_a, stack_b, rra);
-			i--;
+			i++;
 		}
 	}
 	ft_ops(stack_a, stack_b, pa);
