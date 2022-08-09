@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/28 17:34:26 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/09 14:15:29 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ typedef struct s_stack
 	int		size;
 }				t_stack;
 
-enum ops{sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
+typedef enum ops
+{
+	sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
+}			e_ops;
 
 // stack_utils1
 t_stack	*ft_stk_construct(void);
@@ -86,6 +89,6 @@ int		ops_count_to_top(int size, int index);
 int		min_ops_in_a(t_stack *this, int data);
 int		greedy_choice(t_stack *stack_a, t_stack *stack_b);
 void	big_sort(t_stack *stack_a, t_stack *stack_b);
-void	top_to_b(t_stack *stack_a, t_stack *stack_b, int greedy);
+void	top_to_b(t_stack *stack_b, int greedy);
 void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy);
 #endif

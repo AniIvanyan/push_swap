@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/05 11:25:22 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/09 15:25:20 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,10 @@ int	find_index(t_stack *this, int data)
 	return (-1);
 }
 
-int	ops_count_to_top(int size, int index) // logical error can be connected with indexes/ correct rotations
+int	ops_count_to_top(int size, int index)
 {
-	if (index < size / 2)
+	if (index <= size / 2)
 		return (index);
-	else if (index == size)
-		return (0);
 	return (size - index);
 }
 
@@ -97,26 +95,31 @@ int	min_ops_in_a(t_stack *this, int data)
 	int		i;	
 	int		min;
 	int		count;
+	int		index;
 	t_node	*temp;
 
 	if (!this || !this->head)
 		return (-1);
 	i = 0;
 	count = 0;
+	index = -1;
 	min = this->size;
 	temp = this->head;
 	while (i < this->size)
 	{
 		if (data > temp->data && data < temp->next->data)
 		{
-			count = ops_count_to_top(this->size, i + 1); // careful here
+			count = ops_count_to_top(this->size, (i + 1) % this->size); 
 			if (count < min)
+			{
 				min = count;
+				index = (i + 1) % this->size;
+			}
 		}
 		temp = temp->next;
 		i++;
 	}
-	return (min);
+	return (index);
 }
 
 int	greedy_choice(t_stack *stack_a, t_stack *stack_b)
@@ -134,7 +137,7 @@ int	greedy_choice(t_stack *stack_a, t_stack *stack_b)
 	greedy = temp->data;
 	while (i < stack_b->size)
 	{
-		count = ops_count_to_top(stack_b->size, i) + min_ops_in_a(stack_a, temp->data);
+		count = ops_count_to_top(stack_b->size, i) + ops_count_to_top(stack_a->size, min_ops_in_a(stack_a, temp->data));
 		if (count < min)
 		{
 			min = count;
@@ -146,27 +149,27 @@ int	greedy_choice(t_stack *stack_a, t_stack *stack_b)
 	return (greedy);
 }
 
-void	top_to_b(t_stack *stack_a, t_stack *stack_b, int greedy)
+void	top_to_b(t_stack *stack_b, int greedy)
 {
 	int	index;
 	int	i;
 
 	index = find_index(stack_b, greedy);
 	i = 0;
-	if (index < stack_b->size / 2)
+	if (index <= stack_b->size / 2)
 	{
 		while (i < index)
 		{
-			ft_ops(stack_a, stack_b, rb);
+			ft_ops(NULL, stack_b, rb);
 			i++;
 		}
 	}
-	else if (index > stack_b->size / 2)
+	else
 	{
 		i = stack_b->size - index;
-		while (i < index)
+		while (i > 0)
 		{
-			ft_ops(stack_a, stack_b, rrb);
+			ft_ops(NULL, stack_b, rrb);
 			i--;
 		}
 	}
@@ -174,14 +177,14 @@ void	top_to_b(t_stack *stack_a, t_stack *stack_b, int greedy)
 
 void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 {
-	int	count;
+	int	index;
 	int	i;
 	
-	count = min_ops_in_a(stack_a, greedy);
+	index = min_ops_in_a(stack_a, greedy);
 	i = 0;
-	if (count < stack_a->size / 2)
+	if (index <= stack_a->size / 2)
 	{
-		while (i < count)
+		while (i < index)
 		{
 			ft_ops(stack_a, stack_b, ra);
 			i++;
@@ -189,10 +192,11 @@ void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 	}
 	else
 	{
-		while (i < count)
+		i = stack_a->size - index;
+		while (i > 0)
 		{
 			ft_ops(stack_a, stack_b, rra);
-			i++;
+			i--;
 		}
 	}
 	ft_ops(stack_a, stack_b, pa);
@@ -207,10 +211,10 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 	greedy = 0;
 	if (!ft_sorted(stack_a))
 		push_to_b(stack_a, stack_b);
-	while (stack_b->size > 0)
+	while (stack_b->size)
 	{
 		greedy = greedy_choice(stack_a, stack_b);
-		top_to_b(stack_a, stack_b, greedy);
+		top_to_b(stack_b, greedy);
 		insert_in_a(stack_a, stack_b, greedy);
 	}
 }
