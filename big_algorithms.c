@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/09 15:25:20 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:31:21 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,33 @@ void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 	ft_ops(stack_a, stack_b, pa);
 }
 
+void	ft_surface(t_stack *stack_a)
+{
+	int min_index;
+	int	i;
+	
+	min_index = find_min(stack_a);
+	i = 0;
+	if (min_index <= stack_a->size / 2)
+	{
+		while (i < min_index)
+		{
+			ft_ops(stack_a, NULL, ra);
+			i++;
+		}
+	}
+	else
+	{
+		i = stack_a->size - min_index;
+		while (i > 0)
+		{
+			ft_ops(stack_a, NULL, rra);
+			i--;
+		}
+	}
+	
+}
+
 void	big_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int	greedy;
@@ -217,4 +244,5 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 		top_to_b(stack_b, greedy);
 		insert_in_a(stack_a, stack_b, greedy);
 	}
+	ft_surface(stack_a);
 }

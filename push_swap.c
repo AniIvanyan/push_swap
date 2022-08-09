@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:12:11 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/09 15:25:38 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:30:07 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,22 @@ int main(int argc, char **argv)
 	{
 	 	ft_stk_push_int(stack_a, ft_atoi(argv[i--]));
 	}
-	//i = argc - 1;
-	// while(i > 0)
-	// {
-	// printf("%i\n",stack_a->head->data);
-	// stack_a->head = stack_a->head->next;
-	// i--;
-	// }
+	i = argc - 1;
+	while(i > 0)
+	{
+	printf("%i\n",stack_a->head->data);
+	stack_a->head = stack_a->head->next;
+	i--;
+	}
 	if (stack_a->size <= 5)
 		less_five(stack_a, stack_b);
 	else
 		big_sort(stack_a, stack_b);
-	//i = argc - 1;
-	// while(i > 0)
-	// {
-	// printf("%i\n",stack_a->head->data);
-	// stack_a->head = stack_a->head->next;
-	// i--;
-	// }
+	i = argc - 1;
+	while(i > 0)
+	{
+	printf("%i\n",stack_a->head->data);
+	stack_a->head = stack_a->head->next;
+	i--;
+	}
 }

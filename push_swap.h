@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/09 14:15:29 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/09 19:33:49 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ int		greedy_choice(t_stack *stack_a, t_stack *stack_b);
 void	big_sort(t_stack *stack_a, t_stack *stack_b);
 void	top_to_b(t_stack *stack_b, int greedy);
 void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy);
+void	ft_surface(t_stack *stack_a);
 #endif
