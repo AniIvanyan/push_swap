@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_algorithms.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/09 19:31:21 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/16 16:15:05 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,85 +149,127 @@ int	greedy_choice(t_stack *stack_a, t_stack *stack_b)
 	return (greedy);
 }
 
-void	top_to_b(t_stack *stack_b, int greedy)
+void	ops_top(t_stack *stack_a, t_stack *stack_b, int size, int index)
 {
-	int	index;
-	int	i;
-
-	index = find_index(stack_b, greedy);
-	i = 0;
-	if (index <= stack_b->size / 2)
+	if (index <= size / 2)	
 	{
-		while (i < index)
+		while (index)
 		{
-			ft_ops(NULL, stack_b, rb);
-			i++;
+			if (stack_a)
+				ft_ops(stack_a, NULL, ra);
+			else
+				ft_ops(NULL, stack_b, rb);
+			index--;
 		}
 	}
 	else
 	{
-		i = stack_b->size - index;
-		while (i > 0)
+		index = size - index;
+		while (index)
 		{
-			ft_ops(NULL, stack_b, rrb);
-			i--;
+			if (stack_a)
+				ft_ops(stack_a, NULL, rra);
+			else
+				ft_ops(NULL, stack_b, rrb);
+			index--;
 		}
 	}
 }
 
+void	top_to_b(t_stack *stack_b, int greedy)
+{
+	ops_top(NULL, stack_b, stack_b->size, find_index(stack_b, greedy));
+}
+
 void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
 {
-	int	index;
-	int	i;
-	
-	index = min_ops_in_a(stack_a, greedy);
-	i = 0;
-	if (index <= stack_a->size / 2)
-	{
-		while (i < index)
-		{
-			ft_ops(stack_a, stack_b, ra);
-			i++;
-		}
-	}
-	else
-	{
-		i = stack_a->size - index;
-		while (i > 0)
-		{
-			ft_ops(stack_a, stack_b, rra);
-			i--;
-		}
-	}
+	ops_top(stack_a, NULL, stack_a->size, min_ops_in_a(stack_a, greedy));
 	ft_ops(stack_a, stack_b, pa);
 }
 
 void	ft_surface(t_stack *stack_a)
 {
-	int min_index;
-	int	i;
-	
-	min_index = find_min(stack_a);
-	i = 0;
-	if (min_index <= stack_a->size / 2)
-	{
-		while (i < min_index)
-		{
-			ft_ops(stack_a, NULL, ra);
-			i++;
-		}
-	}
-	else
-	{
-		i = stack_a->size - min_index;
-		while (i > 0)
-		{
-			ft_ops(stack_a, NULL, rra);
-			i--;
-		}
-	}
-	
+	ops_top(stack_a, NULL, stack_a->size, find_min(stack_a));
 }
+// void	top_to_b(t_stack *stack_b, int greedy)
+// {
+// 	int	index;
+// 	int	i;
+
+// 	index = find_index(stack_b, greedy);
+// 	i = 0;
+// 	if (index <= stack_b->size / 2)
+// 	{
+// 		while (i < index)
+// 		{
+// 			ft_ops(NULL, stack_b, rb);
+// 			i++;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		i = stack_b->size - index;
+// 		while (i > 0)
+// 		{
+// 			ft_ops(NULL, stack_b, rrb);
+// 			i--;
+// 		}
+// 	}
+// }
+
+// void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy)
+// {
+// 	int	index;
+// 	int	i;
+	
+// 	index = min_ops_in_a(stack_a, greedy);
+// 	i = 0;
+// 	if (index <= stack_a->size / 2)
+// 	{
+// 		while (i < index)
+// 		{
+// 			ft_ops(stack_a, stack_b, ra);
+// 			i++;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		i = stack_a->size - index;
+// 		while (i > 0)
+// 		{
+// 			ft_ops(stack_a, stack_b, rra);
+// 			i--;
+// 		}
+// 	}
+// 	ft_ops(stack_a, stack_b, pa);
+// }
+
+// void	ft_surface(t_stack *stack_a)
+// {
+// 	int min_index;
+// 	int	i;
+	
+// 	min_index = find_min(stack_a);
+// 	i = 0;
+// 	if (min_index <= stack_a->size / 2)
+// 	{
+// 		while (i < min_index)
+// 		{
+// 			ft_ops(stack_a, NULL, ra);
+// 			i++;
+// 		}
+// 	}
+// 	else
+// 	{
+// 		i = stack_a->size - min_index;
+// 		while (i > 0)
+// 		{
+// 			ft_ops(stack_a, NULL, rra);
+// 			i--;
+// 		}
+// 	}
+	
+// }
 
 void	big_sort(t_stack *stack_a, t_stack *stack_b)
 {
