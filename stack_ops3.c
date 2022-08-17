@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 19:34:22 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/09 14:14:07 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/17 22:54:57 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_rrr(t_stack *a, t_stack *b)
 	ft_stk_revrotate(b);
 }
 
-void	ft_ops(t_stack *a, t_stack *b, e_ops ops)
+void	ft_ops(t_stack *a, t_stack *b, t_ops ops)
 {
 	if (ops == sa)
 	{
@@ -42,7 +42,7 @@ void	ft_ops(t_stack *a, t_stack *b, e_ops ops)
 	}
 }
 
-void	ft_ops_helper1(t_stack *a, t_stack *b, e_ops ops)
+void	ft_ops_helper1(t_stack *a, t_stack *b, t_ops ops)
 {
 	if (ops == pa)
 	{
@@ -66,7 +66,7 @@ void	ft_ops_helper1(t_stack *a, t_stack *b, e_ops ops)
 	}
 }
 
-void	ft_ops_helper2(t_stack *a, t_stack *b, e_ops ops)
+void	ft_ops_helper2(t_stack *a, t_stack *b, t_ops ops)
 {
 	if (ops == rr)
 	{

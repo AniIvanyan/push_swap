@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 17:18:00 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/07/26 13:18:31 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:00:47 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	ft_sorted(t_stack *this)
 	int i;
 	t_node *temp;
 
+	if(!this || !this->head)
+		return (0);
 	i = 1;
 	temp = this->head;
 	while(i < this->size)

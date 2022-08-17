@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/16 16:15:23 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/17 22:57:24 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stack
 typedef enum ops
 {
 	sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
-}			e_ops;
+}			t_ops;
 
 // stack_utils1
 t_stack	*ft_stk_construct(void);
@@ -61,9 +61,9 @@ void	ft_rrb(t_stack *b);
 
 //stack_ops3
 void	ft_rrr(t_stack *a, t_stack *b);
-void	ft_ops(t_stack *a, t_stack *b, enum ops ops);
-void	ft_ops_helper1(t_stack *a, t_stack *b, enum ops ops);
-void	ft_ops_helper2(t_stack *a, t_stack *b, enum ops ops);
+void	ft_ops(t_stack *a, t_stack *b, t_ops ops);
+void	ft_ops_helper1(t_stack *a, t_stack *b, t_ops ops);
+void	ft_ops_helper2(t_stack *a, t_stack *b, t_ops ops);
 
 //helper
 int		ft_isspace(int c);
@@ -82,15 +82,21 @@ void	sort_four(t_stack *stack_a, t_stack *stack_b);
 void	sort_five(t_stack *stack_a, t_stack *stack_b);
 void	less_five(t_stack *stack_a, t_stack *stack_b);
 
-//big_algorithms
+//big_algorithms1
 int		find_max(t_stack *this);
-void	push_to_b(t_stack *stack_a, t_stack *stack_b);
-int		ops_count_to_top(int size, int index);
-int		min_ops_in_a(t_stack *this, int data);
+void	push_b(t_stack *stack_a, t_stack *stack_b);
+int		find_index(t_stack *this, int data);
+int		count_top(int size, int index);
+
+//big_algorithms2
+int		insert_index(t_stack *this, int data);
+int		insert_index_helper(int *count, int *min, int i, int size);
 int		greedy_choice(t_stack *stack_a, t_stack *stack_b);
-void	big_sort(t_stack *stack_a, t_stack *stack_b);
-void	top_to_b(t_stack *stack_b, int greedy);
-void	insert_in_a(t_stack *stack_a, t_stack *stack_b, int greedy);
-void	ft_surface(t_stack *stack_a);
+
+//big_algorithms3
 void	ops_top(t_stack *stack_a, t_stack *stack_b, int size, int index);
+void	top_b(t_stack *stack_b, int greedy);
+void	insert_a(t_stack *stack_a, t_stack *stack_b, int greedy);
+void	ft_surface(t_stack *stack_a);
+void	big_sort(t_stack *stack_a, t_stack *stack_b);
 #endif

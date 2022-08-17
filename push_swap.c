@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aivanyan <aivanyan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:12:11 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/16 16:01:34 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/17 23:06:37 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,7 @@ int main(int argc, char **argv)
 	stack_a->head = stack_a->head->next;
 	i--;
 	}
+
+	if (ft_sorted(stack_a))
+		printf("SORTED: YAAAAY SUCCESS");
 }
