@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/17 22:56:56 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/18 22:35:40 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ops_top(t_stack *stack_a, t_stack *stack_b, int size, int index)
 		{
 			if (stack_a)
 				ft_ops(stack_a, NULL, ra);
-			else
+			else if (stack_b)
 				ft_ops(NULL, stack_b, rb);
 			index--;
 		}
@@ -55,7 +55,7 @@ void	ft_surface(t_stack *stack_a)
 	ops_top(stack_a, NULL, stack_a->size, find_min(stack_a));
 }
 
-void	big_sort(t_stack *stack_a, t_stack *stack_b)
+void	big_sort(t_stack *stack_a, t_stack *stack_b, int median)
 {
 	int	greedy;
 	
@@ -63,7 +63,7 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	greedy = 0;
 	if (!ft_sorted(stack_a))
-		push_b(stack_a, stack_b);
+		insert_b(stack_a, stack_b, median);
 	while (stack_b->size)
 	{
 		greedy = greedy_choice(stack_a, stack_b);

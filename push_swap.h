@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/17 22:57:24 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/18 18:23:54 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_stack	*ft_stk_construct(void);
 void	ft_stk_push_int(t_stack *this, int data);
 void	ft_stk_push_node(t_stack *this, t_node *node);
 t_node	*ft_stk_pop(t_stack *this);
-t_node	*ft_stk_top(t_stack *this);
+int		ft_stk_top(t_stack *this);
 
 //stack_utils2
 void	ft_stk_rotate(t_stack *this);
@@ -84,7 +84,7 @@ void	less_five(t_stack *stack_a, t_stack *stack_b);
 
 //big_algorithms1
 int		find_max(t_stack *this);
-void	push_b(t_stack *stack_a, t_stack *stack_b);
+void	insert_b(t_stack *stack_a, t_stack *stack_b, int median);
 int		find_index(t_stack *this, int data);
 int		count_top(int size, int index);
 
@@ -98,5 +98,10 @@ void	ops_top(t_stack *stack_a, t_stack *stack_b, int size, int index);
 void	top_b(t_stack *stack_b, int greedy);
 void	insert_a(t_stack *stack_a, t_stack *stack_b, int greedy);
 void	ft_surface(t_stack *stack_a);
-void	big_sort(t_stack *stack_a, t_stack *stack_b);
+void	big_sort(t_stack *stack_a, t_stack *stack_b, int median);
+
+//order_statistics
+void	ft_swap(int *a, int *b);
+int		ft_partition(int *arr, int p, int r);
+int		ft_select(int *arr, int p, int r, int i);
 #endif

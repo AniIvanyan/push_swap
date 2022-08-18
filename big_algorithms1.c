@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/17 22:51:31 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/18 22:50:48 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	find_max(t_stack *this)
 	return (index);
 }
 
-void	push_b(t_stack *stack_a, t_stack *stack_b)
+void	insert_b(t_stack *stack_a, t_stack *stack_b, int median)
 {
 	int	index_min;
 	int	index_max;
@@ -56,7 +56,15 @@ void	push_b(t_stack *stack_a, t_stack *stack_b)
 		if (i == index_min || i == index_max)
 			ft_ops(stack_a, stack_b, ra);
 		else
-			ft_ops(stack_a, stack_b, pb);
+		{
+			if (ft_stk_top(stack_a) < median)
+			{
+				ft_ops(stack_a, stack_b, pb);
+				ft_ops(stack_a, stack_b, rb);
+			}
+			else
+				ft_ops(stack_a, stack_b, pb);
+		}
 		i++;
 	}
 	if (stack_a->head->data < stack_a->head->next->data)

@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:01:19 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/04 22:16:37 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/18 18:16:10 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,7 @@ t_node	*ft_stk_pop(t_stack *this)
 	return (old_head);
 }
 
-t_node	*ft_stk_top(t_stack *this)
+int	ft_stk_top(t_stack *this)
 {
-	if (!this)
-		return (NULL);
-	return (this->head);
+	return (this->head->data);
 }
