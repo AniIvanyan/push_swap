@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 22:50:48 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/18 23:16:20 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,12 @@ void	insert_b(t_stack *stack_a, t_stack *stack_b, int median)
 			ft_ops(stack_a, stack_b, ra);
 		else
 		{
+			ft_ops(stack_a, stack_b, pb);
 			if (ft_stk_top(stack_a) < median)
-			{
-				ft_ops(stack_a, stack_b, pb);
 				ft_ops(stack_a, stack_b, rb);
-			}
-			else
-				ft_ops(stack_a, stack_b, pb);
 		}
 		i++;
 	}
-	if (stack_a->head->data < stack_a->head->next->data)
-		ft_ops(stack_a, stack_b, sa);
 }
 
 int	find_index(t_stack *this, int data)
