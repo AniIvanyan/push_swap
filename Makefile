@@ -6,7 +6,7 @@
 #    By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/21 19:39:12 by aivanyan          #+#    #+#              #
-#    Updated: 2022/07/21 19:55:51 by aivanyan         ###   ########.fr        #
+#    Updated: 2022/08/26 02:36:43 by aivanyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ OBJS	= $(SRCS:.c=.o)
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 RM		= rm -f
-AR		= ar rcs
 
 all: $(NAME)
 
@@ -25,7 +24,7 @@ all: $(NAME)
 	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 	
 clean:
 	$(RM) $(OBJS)
