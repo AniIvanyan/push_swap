@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 18:23:54 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 00:01:03 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -67,9 +68,16 @@ void	ft_ops_helper2(t_stack *a, t_stack *b, t_ops ops);
 
 //helper
 int		ft_isspace(int c);
-int		ft_atoi(const char *str);
-void	ft_putstr(const char *s);
+int		ft_atoi(char *str);
+void	ft_putstr_fd(const char *s, int fd);
 int		ft_sorted(t_stack *this);
+int		ft_duplicate(t_stack *this, int data);
+int		ft_isdigit(int c);
+int 	ft_isnumeric(const char *str, int index);
+void	ft_exit();
+int		ft_strlen(const char *s);
+int		ft_issign(int c);
+int		ft_isempty(const char *s);
 
 //trivial_algorithms1
 void	sort_two(t_stack *stack_a, t_stack *stack_b);
@@ -104,4 +112,5 @@ void	big_sort(t_stack *stack_a, t_stack *stack_b, int median);
 void	ft_swap(int *a, int *b);
 int		ft_partition(int *arr, int p, int r);
 int		ft_select(int *arr, int p, int r, int i);
+
 #endif

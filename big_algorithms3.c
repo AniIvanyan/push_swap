@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 22:35:40 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/21 20:20:25 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ops_top(t_stack *stack_a, t_stack *stack_b, int size, int index)
 		{
 			if (stack_a)
 				ft_ops(stack_a, NULL, rra);
-			else
+			else if (stack_b)
 				ft_ops(NULL, stack_b, rrb);
 			index--;
 		}

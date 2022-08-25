@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:01:19 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 23:47:33 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:41:33 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_stk_push_int(t_stack *this, int data)
 	if (!this || !new_node)
 		return ;
 	new_node->data = data;
+	if (ft_duplicate(this, data))
+		ft_exit();
 	ft_stk_push_node(this, new_node);
 }
 

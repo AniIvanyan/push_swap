@@ -6,54 +6,70 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:12:11 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 23:28:52 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 02:05:17 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 
+static void	ft_stack_push(t_stack *stack_a, char **argv, int i, int j)
+{
+	while (i > 0)
+	{
+		j = ft_strlen(argv[i]) - 1;
+		if (ft_isempty(argv[i]) || j == -1)
+			ft_exit();
+		while (j >= 0)
+		{
+			if (ft_isdigit(argv[i][j]) && (ft_issign(argv[i][j - 1]) 
+				|| ft_isspace(argv[i][j - 1]) || j == 0))
+			{
+				if (j == 0 && ft_isnumeric(&argv[i][j], j))
+					ft_stk_push_int(stack_a, ft_atoi(&argv[i][j]));
+				else if (ft_isnumeric(&argv[i][j - 1], j - 1))
+					ft_stk_push_int(stack_a, ft_atoi(&argv[i][j - 1]));
+				else
+					ft_exit();
+			}
+			else if (!ft_isnumeric(&argv[i][j], j))
+				ft_exit();
+			j--;
+		}
+		i--;
+	}
+}
+
+static void	ft_fill_array(int *arr, t_node *head, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		arr[i] = head->data;
+		head = head->next;
+		i++;
+	}
+}
+
 int main(int argc, char **argv)
 {
-	int i;
 	int	*arr;
 	t_stack *stack_a;
 	t_stack *stack_b;
 
-	i = argc - 1;
-	arr = malloc(i * sizeof(int));
-	if (!arr)
-		return (0);
-	while (i > 0)
-	{
-		arr[i - 1] = ft_atoi(argv[i]);
-		i--;
-	}
-	i = argc - 1;
 	stack_a = ft_stk_construct();
 	stack_b = ft_stk_construct();
-	while (i > 0)
-	 	ft_stk_push_int(stack_a, ft_atoi(argv[i--]));
-	i = argc - 1;
-	while(i > 0)
-	{
-	printf("%i\n",stack_a->head->data);
-	stack_a->head = stack_a->head->next;
-	i--;
-	}
-	i = argc - 1;
-	if (stack_a->size <= 5)
-		less_five(stack_a, stack_b);
+	ft_stack_push(stack_a, argv, argc - 1, 0);
+	argc = stack_a->size;
+	arr = malloc(argc * sizeof(int));
+	if (!arr)
+		return (0);
+	ft_fill_array(arr, stack_a->head, argc);
+	if (argc <= 5)
+	 	less_five(stack_a, stack_b);
 	else
-		big_sort(stack_a, stack_b, ft_select(arr, 0, i - 1, i / 2));
+		big_sort(stack_a, stack_b, ft_select(arr, 0, argc - 1, argc / 2));
 	free(arr);
-	while(i > 0)
-	{
-	printf("%i\n",stack_a->head->data);
-	stack_a->head = stack_a->head->next;
-	i--;
-	}
-
-	if (ft_sorted(stack_a))
-		printf("SORTED: YAAAAY SUCCESS");
 }

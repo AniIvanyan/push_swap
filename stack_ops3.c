@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 19:34:22 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 23:19:58 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 00:04:01 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ void	ft_ops(t_stack *a, t_stack *b, t_ops ops)
 	if (ops == sa)
 	{
 		ft_sa(a);
-		ft_putstr("sa\n");
+		ft_putstr_fd("sa\n", STDOUT_FILENO);
 	}
 	else if (ops == sb)
 	{
 		ft_sb(b);
-		ft_putstr("sb\n");
+		ft_putstr_fd("sb\n", STDOUT_FILENO);
 	}
 	else if (ops == ss)
 	{
 		ft_ss(a, b);
-		ft_putstr("ss\n");
+		ft_putstr_fd("ss\n", STDOUT_FILENO);
 	}
 	else 
 	{
@@ -47,22 +47,22 @@ void	ft_ops_helper1(t_stack *a, t_stack *b, t_ops ops)
 	if (ops == pa)
 	{
 		ft_pa(a, b);
-		ft_putstr("pa\n");
+		ft_putstr_fd("pa\n", STDOUT_FILENO);
 	}
 	else if (ops == pb)
 	{
 		ft_pb(a, b);
-		ft_putstr("pb\n");
+		ft_putstr_fd("pb\n", STDOUT_FILENO);
 	}
 	else if (ops == ra)
 	{
 		ft_ra(a);
-		ft_putstr("ra\n");
+		ft_putstr_fd("ra\n", STDOUT_FILENO);
 	}
 	else if (ops == rb)
 	{
 		ft_rb(b);
-		ft_putstr("rb\n");
+		ft_putstr_fd("rb\n", STDOUT_FILENO);
 	}
 }
 
@@ -71,21 +71,21 @@ void	ft_ops_helper2(t_stack *a, t_stack *b, t_ops ops)
 	if (ops == rr)
 	{
 		ft_rr(a, b);
-		ft_putstr("rr\n");
+		ft_putstr_fd("rr\n", STDOUT_FILENO);
 	}
 	else if (ops == rra)
 	{
 		ft_rra(a);
-		ft_putstr("rra\n");
+		ft_putstr_fd("rra\n", STDOUT_FILENO);
 	}
 	else if (ops == rrb)
 	{
 		ft_rrb(b);
-		ft_putstr("rrb\n");
+		ft_putstr_fd("rrb\n", STDOUT_FILENO);
 	}
 	else if (ops == rrr)
 	{
 		ft_rrr(a, b);
-		ft_putstr("rrr\n");
+		ft_putstr_fd("rrr\n", STDOUT_FILENO);
 	}
 }
