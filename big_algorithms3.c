@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/21 20:20:25 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:15:18 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ops_top(t_stack *stack_a, t_stack *stack_b, int size, int index)
 {
-	if (index <= size / 2)	
+	if (index <= size / 2)
 	{
 		while (index)
 		{
@@ -58,7 +58,7 @@ void	ft_surface(t_stack *stack_a)
 void	big_sort(t_stack *stack_a, t_stack *stack_b, int median)
 {
 	int	greedy;
-	
+
 	if (!stack_a || !stack_b)
 		return ;
 	greedy = 0;

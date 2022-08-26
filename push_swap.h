@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 20:10:13 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:22:22 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stack
 
 typedef enum ops
 {
-	sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr
+	sa,	sb,	ss,	pa,	pb,	ra,	rb,	rr,	rra,	rrb,	rrr
 }			t_ops;
 
 // stack_utils1
@@ -75,7 +75,7 @@ int		ft_sorted(t_stack *this);
 //helper2
 int		ft_duplicate(t_stack *this, int data);
 int		ft_isdigit(int c);
-void	ft_exit();
+void	ft_exit(void);
 int		ft_strlen(const char *s);
 
 //helper3

@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 19:34:22 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 00:04:01 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:23:17 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ void	ft_ops(t_stack *a, t_stack *b, t_ops ops)
 		ft_ss(a, b);
 		ft_putstr_fd("ss\n", STDOUT_FILENO);
 	}
-	else 
+	else
 	{
-	ft_ops_helper1(a, b, ops);
-	ft_ops_helper2(a, b, ops);
+		ft_ops_helper1(a, b, ops);
+		ft_ops_helper2(a, b, ops);
 	}
 }
 

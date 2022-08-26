@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:12:11 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 20:08:44 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:21:10 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ static void	ft_stack_push(t_stack *stack_a, char **argv, int i)
 	while (i > 0)
 	{
 		j = ft_strlen(argv[i]) - 1;
-		if (ft_isempty(argv[i]) || ft_invalidsign(argv[i])  || !ft_isnumeric(argv[i]) || j == -1)
+		if (ft_isempty(argv[i]) || ft_invalidsign(argv[i])
+			|| !ft_isnumeric(argv[i]) || j == -1)
 			ft_exit();
 		while (j >= 0)
 		{
-			if (ft_isdigit(argv[i][j]) && (ft_issign(argv[i][j - 1]) 
+			if (ft_isdigit(argv[i][j]) && (ft_issign(argv[i][j - 1])
 				|| ft_isspace(argv[i][j - 1]) || j == 0))
 			{
 				if (j == 0)
@@ -51,11 +52,11 @@ static void	ft_fill_array(int *arr, t_node *head, int size)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	int	*arr;
-	t_stack *stack_a;
-	t_stack *stack_b;
+	int		*arr;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	if (argc == 1)
 		return (0);
@@ -68,7 +69,7 @@ int main(int argc, char **argv)
 		return (0);
 	ft_fill_array(arr, stack_a->head, argc);
 	if (argc <= 5)
-	 	less_five(stack_a, stack_b);
+		less_five(stack_a, stack_b);
 	else
 		big_sort(stack_a, stack_b, ft_select(arr, 0, argc - 1, argc / 2));
 	free(arr);

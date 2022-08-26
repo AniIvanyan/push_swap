@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:01:09 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/17 22:56:26 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:14:33 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	insert_index(t_stack *this, int data)
 
 int	insert_index_helper(int *count, int *min, int i, int size)
 {
-	int index;
+	int	index;
 
 	index = -1;
-	*count = count_top(size, (i + 1) % size); 
+	*count = count_top(size, (i + 1) % size);
 	if (*count < *min)
 	{
 		*min = *count;
@@ -53,12 +53,12 @@ int	insert_index_helper(int *count, int *min, int i, int size)
 
 int	greedy_choice(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	count;
-	int	min;
-	int	greedy;
+	int		i;
+	int		count;
+	int		min;
+	int		greedy;
 	t_node	*temp;
-	
+
 	i = 0;
 	count = 0;
 	min = stack_b->size;

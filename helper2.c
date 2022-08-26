@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 20:10:46 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 20:14:36 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:16:29 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_duplicate(t_stack *this, int data)
 {
 	t_node	*temp;
-	int	i;
+	int		i;
 
 	if (!this || !this->head)
 		return (0);
@@ -36,7 +36,7 @@ int	ft_isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-void	ft_exit()
+void	ft_exit(void)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	exit(EXIT_FAILURE);

@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 19:01:19 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/25 14:41:33 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:23:44 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_stack	*ft_stk_construct(void)
 void	ft_stk_push_int(t_stack *this, int data)
 {
 	t_node	*new_node;
-	
+
 	new_node = malloc(sizeof(t_node));
 	if (!this || !new_node)
 		return ;

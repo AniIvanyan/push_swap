@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 00:33:50 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/23 17:14:11 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 21:08:56 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	find_max(t_stack *this)
 {
-	int	i;
-	int	index;
-	int	max;
-	t_node *temp;
+	int		i;
+	int		index;
+	int		max;
+	t_node	*temp;
 
 	if (!this || !this->head)
 		return (-1);
@@ -67,8 +67,8 @@ void	insert_b(t_stack *stack_a, t_stack *stack_b, int median)
 
 int	find_index(t_stack *this, int data)
 {
-	int	i;
-	t_node *temp;
+	int		i;
+	t_node	*temp;
 
 	if (!this)
 		return (-1);

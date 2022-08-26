@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/18 17:44:57 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/18 23:19:44 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 22:18:54 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	ft_swap(int *a, int *b)
 {
 	int	c;
-	
 
 	c = *a;
 	*a = *b;
@@ -48,12 +47,12 @@ int	ft_select(int *arr, int p, int r, int i)
 {
 	int	pivot;
 	int	k;
-	
+
 	pivot = ft_partition(arr, p, r);
 	k = pivot - p + 1;
 	if (i == k)
 		return (arr[pivot]);
 	if (i < k)
-		return ft_select(arr, p, pivot - 1, i);
-	return ft_select(arr, pivot + 1, r, i - k);
+		return (ft_select(arr, p, pivot - 1, i));
+	return (ft_select(arr, pivot + 1, r, i - k));
 }
