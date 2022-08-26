@@ -6,34 +6,32 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:12:11 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 13:23:59 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 20:08:44 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-static void	ft_stack_push(t_stack *stack_a, char **argv, int i, int j)
+static void	ft_stack_push(t_stack *stack_a, char **argv, int i)
 {
+	int	j;
+
+	j = 0;
 	while (i > 0)
 	{
 		j = ft_strlen(argv[i]) - 1;
-		if (ft_isempty(argv[i]) || ft_invalidsign(argv[i]) || j == -1)
+		if (ft_isempty(argv[i]) || ft_invalidsign(argv[i])  || !ft_isnumeric(argv[i]) || j == -1)
 			ft_exit();
 		while (j >= 0)
 		{
 			if (ft_isdigit(argv[i][j]) && (ft_issign(argv[i][j - 1]) 
 				|| ft_isspace(argv[i][j - 1]) || j == 0))
 			{
-				if (j == 0 && ft_isnumeric(&argv[i][j], j))
+				if (j == 0)
 					ft_stk_push_int(stack_a, ft_atoi(&argv[i][j]));
-				else if (ft_isnumeric(&argv[i][j - 1], j - 1))
-					ft_stk_push_int(stack_a, ft_atoi(&argv[i][j - 1]));
 				else
-					ft_exit();
+					ft_stk_push_int(stack_a, ft_atoi(&argv[i][j - 1]));
 			}
-			else if (!ft_isnumeric(&argv[i][j], j))
-				ft_exit();
 			j--;
 		}
 		i--;
@@ -63,7 +61,7 @@ int main(int argc, char **argv)
 		return (0);
 	stack_a = ft_stk_construct();
 	stack_b = ft_stk_construct();
-	ft_stack_push(stack_a, argv, argc - 1, 0);
+	ft_stack_push(stack_a, argv, argc - 1);
 	argc = stack_a->size;
 	arr = malloc(argc * sizeof(int));
 	if (!arr)

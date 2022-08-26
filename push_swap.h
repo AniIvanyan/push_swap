@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 13:23:37 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 20:10:13 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
-# include <fcntl.h>
 
 typedef struct s_node
 {
@@ -67,19 +66,23 @@ void	ft_ops(t_stack *a, t_stack *b, t_ops ops);
 void	ft_ops_helper1(t_stack *a, t_stack *b, t_ops ops);
 void	ft_ops_helper2(t_stack *a, t_stack *b, t_ops ops);
 
-//helper
+//helper1
 int		ft_isspace(int c);
 int		ft_atoi(char *str);
 void	ft_putstr_fd(const char *s, int fd);
 int		ft_sorted(t_stack *this);
+
+//helper2
 int		ft_duplicate(t_stack *this, int data);
 int		ft_isdigit(int c);
-int 	ft_isnumeric(const char *str, int index);
 void	ft_exit();
 int		ft_strlen(const char *s);
+
+//helper3
 int		ft_issign(int c);
 int		ft_isempty(const char *s);
 int		ft_invalidsign(const char *s);
+int		ft_isnumeric(const char *s);
 
 //trivial_algorithms1
 void	sort_two(t_stack *stack_a, t_stack *stack_b);
