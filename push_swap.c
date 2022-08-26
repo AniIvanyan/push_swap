@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 20:12:11 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 02:05:17 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 13:23:59 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	ft_stack_push(t_stack *stack_a, char **argv, int i, int j)
 	while (i > 0)
 	{
 		j = ft_strlen(argv[i]) - 1;
-		if (ft_isempty(argv[i]) || j == -1)
+		if (ft_isempty(argv[i]) || ft_invalidsign(argv[i]) || j == -1)
 			ft_exit();
 		while (j >= 0)
 		{
@@ -59,6 +59,8 @@ int main(int argc, char **argv)
 	t_stack *stack_a;
 	t_stack *stack_b;
 
+	if (argc == 1)
+		return (0);
 	stack_a = ft_stk_construct();
 	stack_b = ft_stk_construct();
 	ft_stack_push(stack_a, argv, argc - 1, 0);

@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 00:01:03 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/26 13:23:37 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <fcntl.h>
 
 typedef struct s_node
 {
@@ -78,6 +79,7 @@ void	ft_exit();
 int		ft_strlen(const char *s);
 int		ft_issign(int c);
 int		ft_isempty(const char *s);
+int		ft_invalidsign(const char *s);
 
 //trivial_algorithms1
 void	sort_two(t_stack *stack_a, t_stack *stack_b);
