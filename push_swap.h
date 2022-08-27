@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:29:53 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 22:22:22 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:37:58 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,17 @@ typedef struct s_stack
 
 typedef enum ops
 {
-	sa,	sb,	ss,	pa,	pb,	ra,	rb,	rr,	rra,	rrb,	rrr
+	sa,	
+	sb,	
+	ss,
+	pa,	
+	pb,	
+	ra,	
+	rb,	
+	rr,	
+	rra,	
+	rrb,
+	rrr
 }			t_ops;
 
 // stack_utils1

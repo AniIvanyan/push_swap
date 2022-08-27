@@ -6,7 +6,7 @@
 /*   By: aivanyan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 19:01:09 by aivanyan          #+#    #+#             */
-/*   Updated: 2022/08/26 22:14:33 by aivanyan         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:41:48 by aivanyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,13 @@ int	greedy_choice(t_stack *stack_a, t_stack *stack_b)
 	greedy = temp->data;
 	while (i < stack_b->size)
 	{
-		count = count_top(stack_b->size, i) + count_top(stack_a->size, insert_index(stack_a, temp->data));
+		count = count_top(stack_b->size, i++);
+		count += count_top(stack_a->size, insert_index(stack_a, temp->data));
 		if (count < min)
 		{
 			min = count;
 			greedy = temp->data;
 		}
-		i++;
 		temp = temp->next;
 	}
 	return (greedy);
